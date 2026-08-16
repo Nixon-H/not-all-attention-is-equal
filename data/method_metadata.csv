@@ -1,0 +1,22 @@
+analysis_version,method,analysis_status,score_row_present,decision_basis,next_action
+v1.0,Transformer,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,FlashAttention-2/3,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,GQA,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,MQA,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,PagedAttention,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Ring Attention,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Longformer,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,BigBird,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Sparse Transformer,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Routing Transformer,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Reformer,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Performer,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Linformer,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,xLSTM,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Mamba,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Mamba-2 (SSD),included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Hyena,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,RWKV,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Focus,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,DashAttention,included_current_matrix,yes,Author-selected panel,Freeze until next round
+v1.0,Swin Transformer,included_current_matrix,yes,Author-selected panel,Freeze until next round

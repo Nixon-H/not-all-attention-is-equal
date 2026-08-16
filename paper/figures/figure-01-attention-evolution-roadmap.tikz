@@ -1,0 +1,213 @@
+\definecolor{colorblue}{HTML}{2980B9}
+\definecolor{colorgreen}{HTML}{27AE60}
+\definecolor{colorpurple}{HTML}{8E44AD}
+\definecolor{colorred}{HTML}{C0392B}
+\definecolor{colororange}{HTML}{E67E22}
+\definecolor{colorcyan}{HTML}{1ABC9C}
+
+\definecolor{bgblue}{HTML}{F2F7FA}
+\definecolor{bggreen}{HTML}{F1F9F4}
+\definecolor{bgorange}{HTML}{FEF9F5}
+
+\begin{tikzpicture}[
+  x=1cm,
+  y=1cm,
+  familybox/.style={
+    font=\scriptsize,
+    align=center,
+    text width=1.50cm,
+    minimum width=1.70cm,
+    minimum height=1.22cm,
+    inner sep=1pt,
+    outer sep=0pt
+  },
+  branchheadertext/.style={
+    font=\bfseries\tiny,
+    inner sep=0pt,
+    align=center
+  }
+]
+
+% Background Containers
+\draw[draw=colorblue!30, fill=bgblue, rounded corners=4pt]
+  (2.25,5.0) rectangle (17.25,6.9);
+\draw[draw=colorgreen!30, fill=bggreen, rounded corners=4pt]
+  (2.25,1.65) rectangle (17.25,4.7);
+\draw[draw=colororange!30, fill=bgorange, rounded corners=4pt]
+  (2.25,-1.2) rectangle (17.25,1.35);
+
+% Left Phase Indicators
+% Phase 1
+\draw[draw=colorblue!50, fill=colorblue!5, rounded corners=4pt]
+  (-1.5,5.3) rectangle (1.8,6.6);
+\node[circle, fill=colorblue, text=white, font=\bfseries\small,
+  inner sep=2.5pt] at (-1.1,5.95) {1};
+\draw[colorblue, line width=1.2pt] (-0.1,6.4) -- (0.5,6.4);
+\draw[colorblue, line width=1.2pt] (0.0,6.4) -- (0.0,6.2);
+\draw[colorblue, line width=1.2pt] (0.2,6.4) -- (0.2,6.2);
+\draw[colorblue, line width=1.2pt] (0.4,6.4) -- (0.4,6.2);
+\draw[colorblue, line width=1.2pt] (-0.1,6.2) -- (0.5,6.2);
+\node[color=colorblue, font=\bfseries\tiny, align=center]
+  at (0.2,5.65) {FOUNDATIONS\\(2015--2017)};
+
+% Phase 2
+\draw[draw=colorgreen!50, fill=colorgreen!5, rounded corners=4pt]
+  (-1.5,2.45) rectangle (1.8,3.75);
+\node[circle, fill=colorgreen, text=white, font=\bfseries\small,
+  inner sep=2.5pt] at (-1.1,3.1) {2};
+\fill[colorgreen] (0.2,3.5) circle (1.5pt);
+\fill[colorgreen] (-0.1,3.3) circle (1.5pt);
+\fill[colorgreen] (0.5,3.3) circle (1.5pt);
+\fill[colorgreen] (0.2,3.2) circle (1.5pt);
+\draw[colorgreen, thin] (0.2,3.2) -- (0.2,3.5);
+\draw[colorgreen, thin] (0.2,3.2) -- (-0.1,3.3);
+\draw[colorgreen, thin] (0.2,3.2) -- (0.5,3.3);
+\node[color=colorgreen, font=\bfseries\tiny, align=center]
+  at (0.2,2.8) {DIVERSIFICATION\\(2019--2024)};
+
+% Phase 3
+\draw[draw=colororange!50, fill=colororange!5, rounded corners=4pt]
+  (-1.5,-0.4) rectangle (1.8,0.9);
+\node[circle, fill=colororange, text=white, font=\bfseries\small,
+  inner sep=2.5pt] at (-1.1,0.25) {3};
+\draw[colororange, thick, ->, >=stealth] (-0.1,0.7) -- (0.2,0.45);
+\draw[colororange, thick, ->, >=stealth] (0.5,0.7) -- (0.2,0.45);
+\node[color=colororange, font=\bfseries\tiny, align=center]
+  at (0.2,-0.05) {CONVERGENCE\\(2024--2026)};
+
+% Vertical Grey Arrow
+\draw[-{Latex[scale=1.0]}, line width=3pt, gray!40]
+  (2.05,5.35) -- (2.05,0.35);
+
+% --- LEVEL 1 (FOUNDATIONS) ---
+\node[draw, fill=white, font=\scriptsize, align=center,
+  minimum width=1.6cm, minimum height=0.5cm]
+  (Bahdanau) at (3.75,6.3) {Bahdanau\\(2015)};
+\node[draw, fill=white, font=\scriptsize, align=center,
+  minimum width=1.6cm, minimum height=0.5cm]
+  (Luong) at (3.75,5.6) {Luong\\(2015)};
+\node[draw, fill=gray!20, font=\bfseries\scriptsize, align=center,
+  minimum width=2.0cm, minimum height=0.5cm]
+  (Transformer) at (7.85,5.95) {Transformer (2017)};
+
+% Level 1 Connections
+\draw (Bahdanau.east) -- (5.3,6.3);
+\draw (Luong.east) -- (5.3,5.6);
+\draw (5.3,6.3) -- (5.3,5.6);
+\draw[->, >=stealth] (5.3,5.95) -- (Transformer.west);
+% Transformer attention also participates in the later attention--SSM
+% convergence.  Route this conceptual link around the roadmap so it is not
+% mistaken for a direct parent-child arrow to an intermediate family.
+\draw[dashed, black!70, rounded corners=3pt]
+  (Transformer.east) -- (17.13,5.95) -- (17.13,1.1);
+
+% Main Downward split to headers
+\draw (Transformer.south) -- (7.85,5.15) -- (4.85,5.15);
+\draw (4.85,5.15) -- (4.85,4.2);
+\draw (7.85,5.15) -- (10.975,5.15);
+\draw (10.975,5.15) -- (10.975,4.2);
+
+% --- LEVEL 2 (DIVERSIFICATION) ---
+% Vision Sub-container
+\draw[draw=colorblue!40, rounded corners=3pt, fill=white]
+  (2.9,1.9) rectangle (6.75,4.2);
+\draw[draw=colorblue!40, fill=colorblue!10]
+  (2.9,3.97) rectangle (6.75,4.2);
+\node[branchheadertext, text=colorblue]
+  at (4.825,4.085) {VISION ADAPTATIONS};
+
+% Vision Inner Nodes
+\node[draw=colorblue!50, fill=colorblue!5, font=\scriptsize,
+  align=center, minimum width=1.0cm, minimum height=0.7cm]
+  (ViT) at (3.55,2.6) {ViT\\(2021)};
+\node[draw=colorblue!50, fill=colorblue!5, font=\scriptsize,
+  align=center, minimum width=1.0cm, minimum height=0.7cm]
+  (DETR) at (4.85,2.6) {DETR\\(2020)};
+\node[draw=colorblue!50, fill=colorblue!5, font=\scriptsize,
+  align=center, minimum width=1.0cm, minimum height=0.7cm]
+  (Swin) at (6.15,2.6) {Swin\\(2021)};
+
+% Vision Distributor Lines
+\draw (4.85,4.0) -- (4.85,3.5);
+\draw (3.55,3.5) -- (6.15,3.5);
+\draw[->, >=stealth] (3.55,3.5) -- (3.55,3.1);
+\draw[->, >=stealth] (4.85,3.5) -- (4.85,3.1);
+\draw[->, >=stealth] (6.15,3.5) -- (6.15,3.1);
+
+% Transformer-derived sequence-efficiency sub-container
+\draw[draw=colorgreen!40, rounded corners=3pt, fill=white]
+  (7.0,1.9) rectangle (14.95,4.2);
+\draw[draw=colorgreen!40, fill=colorgreen!10]
+  (7.0,3.97) rectangle (14.95,4.2);
+\node[branchheadertext, text=colorgreen]
+  at (10.975,4.085) {TRANSFORMER-DERIVED EFFICIENCY DIRECTIONS};
+
+% Structured sequence models follow an independent SSM/recurrent lineage.
+% A separate compartment prevents them from reading as Transformer children.
+\draw[draw=colororange!45, rounded corners=3pt, fill=white]
+  (15.1,1.9) rectangle (17.0,4.2);
+\draw[draw=colororange!45, fill=colororange!10]
+  (15.1,3.97) rectangle (17.0,4.2);
+\node[branchheadertext, text=colororange]
+  at (16.175,4.085)
+  {\resizebox{1.52cm}{!}{\textbf{PARALLEL ALTERNATIVE}}};
+
+% Sequence Inner Nodes
+\node[familybox, draw=colorgreen!50, fill=colorgreen!5]
+  (Fixed) at (7.9,2.6)
+  {\textbf{Fixed /\\window}\\{\tiny Longformer,\\BigBird}};
+\node[familybox, draw=colorgreen!50, fill=colorgreen!5]
+  (Routing) at (9.95,2.6)
+  {\textbf{Content\\routing}\\{\tiny Reformer,\\Routing Tx.}};
+\node[familybox, draw=colorpurple!50, fill=colorpurple!5]
+  (Linear) at (12.0,2.6)
+  {\textbf{Linear /\\kernel}\\{\tiny Performer,\\Linformer}};
+\node[familybox, draw=colorred!50, fill=colorred!5]
+  (IO) at (14.05,2.6)
+  {\textbf{IO--aware /\\KV-eff.}\\{\tiny FlashAttention,\\PagedAttn.}};
+\node[familybox, draw=colororange!50, fill=colororange!5]
+  (Structured) at (16.05,2.6)
+  {\textbf{Structured\\seq.}\\{\tiny Mamba, RWKV,\\xLSTM}};
+
+% Sequence Distributor Lines.  The solid Transformer-derived lineage ends at
+% IO-aware attention; structured sequence models are parallel alternatives.
+\draw (10.975,4.0) -- (10.975,3.5);
+\draw (7.9,3.5) -- (14.05,3.5);
+\draw[->, >=stealth] (7.9,3.5) -- (Fixed.north);
+\draw[->, >=stealth] (9.95,3.5) -- (Routing.north);
+\draw[->, >=stealth] (12.0,3.5) -- (Linear.north);
+\draw[->, >=stealth] (14.05,3.5) -- (IO.north);
+
+% --- LEVEL 3 (CONVERGENCE) ---
+\node[draw=colorblue!50, fill=colorblue!10, font=\scriptsize,
+  align=center, text width=5.0cm, minimum height=0.7cm]
+  (Adaptive) at (6.5,0.4)
+  {\textbf{Adaptive sparse attention}\\ \small NSA (2025), Focus / Dash (2026)};
+\node[draw=colororange!50, fill=colororange!10, font=\scriptsize,
+  align=center, text width=4.5cm, minimum height=0.7cm]
+  (Hybrids) at (12.5,0.4)
+  {\textbf{Attention--SSM hybrids}\\ \small Jamba, Samba (2024)};
+
+% Dashed Convergence Connections
+% Adaptive sparsity conceptually combines fixed/window patterns with
+% content-dependent routing.  Swin is deliberately not connected here.
+\draw[dashed] (Fixed.south) -- (7.9,1.1);
+\draw[dashed] (Routing.south) -- (9.95,1.1);
+\draw[dashed] (7.9,1.1) -- (9.95,1.1);
+\draw[dashed, ->, >=stealth, rounded corners=3pt]
+  (8.925,1.1) -| (Adaptive.north);
+
+% Attention--SSM hybrids combine Transformer attention with the parallel
+% structured-sequence family.  Routing, linear, and IO-aware boxes are not
+% architectural parents of Jamba or Samba.
+\draw[dashed] (Structured.south) -- (16.05,1.1);
+\draw[dashed] (12.5,1.1) -- (17.13,1.1);
+\draw[dashed, ->, >=stealth] (12.5,1.1) -- (Hybrids.north);
+
+% Bottom Legend
+\draw[->, >=stealth, thick] (2.7,-0.9) -- (3.5,-0.9)
+  node[right, font=\tiny\bfseries] {major lineage};
+\draw[dashed, ->, >=stealth, thick] (6.0,-0.9) -- (6.8,-0.9)
+  node[right, font=\tiny\bfseries] {thematic convergence (conceptual)};
+
+\end{tikzpicture}

@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale=0.85, transform shape,
+  box/.style={rectangle, draw, minimum width=1.6cm, minimum height=0.5cm, align=center, font=\small, text height=0.6em, text depth=0.15em},
+  arrow/.style={->, >=latex, thick}
+]
+\node[box] (Q) at (0,0) {Q};
+\node[box] (K) at (1.6,0) {K};
+\node[box] (V) at (3.8,0) {V};
+\node[box] (matmul1) at (0.8,-1.2) {MatMul};
+\node[box] (scale) at (0.8,-2.3) {Scale};
+\node[box] (mask) at (0.8,-3.4) {Mask (opt.)};
+\node[box] (softmax) at (0.8,-4.5) {SoftMax};
+\node[box] (matmul2) at (3.8,-4.5) {MatMul};
+\node[box] (output) at (3.8,-5.7) {Output};
+\draw[arrow] (Q) -- (matmul1);
+\draw[arrow] (K) -- (matmul1);
+\draw[arrow] (matmul1) -- (scale);
+\draw[arrow] (scale) -- (mask);
+\draw[arrow] (mask) -- (softmax);
+\draw[arrow] (softmax.east) -- (matmul2.west);
+\draw[arrow] (V) -- (matmul2);
+\draw[arrow] (matmul2) -- (output);
+\node[align=left, font=\footnotesize] at (5.8,-1.2) {$\text{Attn}(Q,K,V)=$\\$\text{softmax}(\frac{QK^T}{\sqrt{d_k}})V$};
+\end{tikzpicture}

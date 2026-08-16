@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+node distance=1.4em and 1.6em,
+flow/.style={draw, thick, rectangle, minimum width=5.6em, align=center, inner sep=4pt, font=\footnotesize},
+excl/.style={flow, align=left, xshift=8.2em},
+arr/.style={-{Stealth}, thick},
+]
+\node[flow] (id)  {\textbf{Identification}\\Records identified through\\database search (n = 1,265)};
+\node[flow, below=of id] (dups) {Records after duplicates\\removed (n = 1,123)};
+\node[flow, below=of dups] (scr) {\textbf{Screening}\\Titles/abstracts screened\\(n = 1,123)};
+\node[excl, right=of scr] (ex1) {\textbf{Excluded}\\n = 1,029};
+\node[flow, below=of scr] (ft) {\textbf{Eligibility}\\Full-text articles\\assessed (n = 94)};
+\node[excl, right=of ft] (ex2) {\textbf{Excluded}\\n = 31};
+\node[flow, below=of ft] (inc) {\textbf{Included in}\\synthesis (n = 63)};
+\draw[arr] (id.south) -- (dups.north);
+\draw[arr] (dups.south) -- (scr.north);
+\draw[arr] (scr.east) -- (ex1.west) node[midway, above, font=\scriptsize] {title/abstract reasons};
+\draw[arr] (scr.south) -- (ft.north);
+\draw[arr] (ft.east) -- (ex2.west) node[midway, above, font=\scriptsize] {full-text reasons};
+\draw[arr] (ft.south) -- (inc.north);
+\end{tikzpicture}

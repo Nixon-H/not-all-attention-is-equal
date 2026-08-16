@@ -1,0 +1,51 @@
+\begin{tikzpicture}[x=0.38cm, y=0.38cm]
+\scriptsize
+% Timeline bar
+\draw[thick, -stealth] (0,0) -- (72,0);
+% Year labels
+\foreach \x/\year in {0/2015, 8/2017, 18/2019, 24/2020, 31/2021, 38/2022, 46/2023, 54/2024, 66/2026}
+  \draw (\x,0) -- (\x,-0.3) node[below,font=\footnotesize] {\year};
+% === ABOVE TIMELINE ===
+% Tier 1 (y=4.0): top sparse
+\draw[blue] (30.5,0) -- (30.5,2.4) node[above=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=south] {Performer};
+\draw[red] (54.9,0) -- (54.9,2.6) node[above=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize\bfseries, text=red, anchor=south] {FlashAttn-2};
+% Tier 2 (y=2.5/3.0): linear/kernel (staggered)
+\draw[blue] (18.4,0) -- (18.4,2.5) node[above=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=south] {MQA};
+\draw[blue] (28.5,0) -- (28.5,3.7) node[above=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=south] {Lin.\ Tx.};
+% Tier 3 (y=1.0): fixed sparse
+\draw (15,0) -- (15,1.0) node[above=2pt, fill=white, draw=gray!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize\bfseries, anchor=south] {BERT};
+\draw (20.2,0) -- (20.2,1.0) node[above=2pt, fill=white, draw=gray!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, anchor=south] {Sparse Tx.};
+\draw[blue] (25.0,0) -- (25.0,2.2) node[above=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=south] {Longformer};
+\draw[blue] (26.8,0) -- (26.8,0.8) node[above=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=south] {BigBird};
+\draw[blue] (32.5,0) -- (32.5,1.2) node[above=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=south] {DINO};
+\draw[blue] (34.7,0) -- (34.7,0.7) node[above=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=south] {MAE};
+% === BELOW TIMELINE ===
+% Tier 1 (y=-1.5): foundational systems (staggered)
+\draw[blue] (25.5,0) -- (25.5,-1.5) node[below=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=north] {Reformer};
+\draw[blue] (29.8,0) -- (29.8,-2.0) node[below=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=north] {Swin Tx.};
+\draw[blue] (42.6,0) -- (42.6,-1.5) node[below=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize\bfseries, text=blue, anchor=north] {FlashAttn.};
+\draw[blue] (36.4,0) -- (36.4,-2.0) node[below=2pt, fill=white, draw=blue!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=blue, anchor=north] {S4};
+% Tier 2 (y=-3.0/-3.5): 2023 cluster (spread wider, staggered)
+\draw[red] (47.6,0) -- (47.6,-1.8) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=north] {GPT-4};
+\draw[red] (51.8,0) -- (51.8,-0.8) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize\bfseries, text=red, anchor=north] {Mamba};
+\draw[red] (51.0,0) -- (51.0,1.0) node[above=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=south] {GQA};
+% Tier 3 (y=-5.0/-5.5): SSM/hybrid (staggered)
+\draw[red] (48.7,0) -- (48.7,0.6) node[above=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=south] {Hyena};
+\draw[red] (50.3,0) -- (50.3,-2.5) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=north] {RWKV};
+% Tier 4 (y=-2.0): 2024 (spread wider)
+\draw[red] (62.0,0) -- (62.0,-1.7) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=north] {FlashAttn-3};
+\draw[red] (57.0,0) -- (57.0,-2.0) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=north] {Mamba-2};
+% Tier 5: 2026 methods.  Horizontal coordinates preserve first-public
+% chronology (Mamba-3: March 16; Focus v2: April 29; DashAttention: May 18),
+% while vertical staggering keeps the closely spaced labels legible.
+\draw[red] (67.25,0) -- (67.25,-1.5) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=north, align=center] {Mamba-3\\{\tiny Mar.\ 2026}};
+\draw[red] (69.2,0) -- (69.2,-3.8) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=north, align=center] {Focus\\{\tiny Apr.\ 2026}};
+\draw[red] (71.3,0) -- (71.3,-1.2) node[below=2pt, fill=white, draw=red!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize, text=red, anchor=north, align=center] {DashAttn.\\{\tiny May 2026}};
+% Foundational labels (bold)
+\draw (0,0) -- (0,2.0) node[above=2pt, fill=white, draw=gray!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize\bfseries, anchor=south, align=center] {Bahdanau Attn.};
+\draw (8,0) -- (8,2.0) node[above=2pt, fill=white, draw=gray!30, rounded corners=1pt, line width=0.2pt, inner sep=1.5pt, font=\scriptsize\bfseries, anchor=south, align=center] {Transformer};
+% Era labels (close to lowest tier)
+\node[fill=gray!10, font=\scriptsize, minimum height=0.5cm, text width=4.2cm, align=center] at (8,-8.1) {Foundational\\{\footnotesize\color{gray}(2015--2019)}};
+\node[fill=blue!10, font=\scriptsize, minimum height=0.5cm, text width=4.2cm, align=center] at (31,-8.1) {Sparse \& Linear\\{\footnotesize\color{gray}(2020--2022)}};
+\node[fill=red!10,  font=\scriptsize, minimum height=0.5cm, text width=4.2cm, align=center] at (55,-8.1) {Hybrid \& Systems\\{\footnotesize\color{gray}(2023--2026)}};
+\end{tikzpicture}

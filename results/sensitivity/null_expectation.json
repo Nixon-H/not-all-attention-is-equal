@@ -1,0 +1,317 @@
+[
+  {
+    "weight": "Equal",
+    "method": "Transformer",
+    "null_expected_instability": 0.6874395799563492
+  },
+  {
+    "weight": "Equal",
+    "method": "FlashAttention-2/3",
+    "null_expected_instability": 0.5285076434126986
+  },
+  {
+    "weight": "Equal",
+    "method": "GQA",
+    "null_expected_instability": 0.733027642109668
+  },
+  {
+    "weight": "Equal",
+    "method": "MQA",
+    "null_expected_instability": 0.7349159319440375
+  },
+  {
+    "weight": "Equal",
+    "method": "PagedAttention",
+    "null_expected_instability": 0.5285076434126986
+  },
+  {
+    "weight": "Equal",
+    "method": "Ring Attention",
+    "null_expected_instability": 0.6959437116666665
+  },
+  {
+    "weight": "Equal",
+    "method": "Longformer",
+    "null_expected_instability": 0.733027642109668
+  },
+  {
+    "weight": "Equal",
+    "method": "BigBird",
+    "null_expected_instability": 0.733027642109668
+  },
+  {
+    "weight": "Equal",
+    "method": "Sparse Transformer",
+    "null_expected_instability": 0.6874395799563492
+  },
+  {
+    "weight": "Equal",
+    "method": "Routing Transformer",
+    "null_expected_instability": 0.6874395799563492
+  },
+  {
+    "weight": "Equal",
+    "method": "Reformer",
+    "null_expected_instability": 0.37939878000000016
+  },
+  {
+    "weight": "Equal",
+    "method": "Performer",
+    "null_expected_instability": 0.37939878000000016
+  },
+  {
+    "weight": "Equal",
+    "method": "Linformer",
+    "null_expected_instability": 0.37939878000000016
+  },
+  {
+    "weight": "Equal",
+    "method": "xLSTM",
+    "null_expected_instability": 0.6874395799563492
+  },
+  {
+    "weight": "Equal",
+    "method": "Mamba",
+    "null_expected_instability": 0.733027642109668
+  },
+  {
+    "weight": "Equal",
+    "method": "Mamba-2 (SSD)",
+    "null_expected_instability": 0.5285076434126986
+  },
+  {
+    "weight": "Equal",
+    "method": "Hyena",
+    "null_expected_instability": 0.7349159319440375
+  },
+  {
+    "weight": "Equal",
+    "method": "RWKV",
+    "null_expected_instability": 0.6874395799563492
+  },
+  {
+    "weight": "Equal",
+    "method": "Focus",
+    "null_expected_instability": 0.6959437116666665
+  },
+  {
+    "weight": "Equal",
+    "method": "DashAttention",
+    "null_expected_instability": 0.5285076434126986
+  },
+  {
+    "weight": "Equal",
+    "method": "Swin Transformer",
+    "null_expected_instability": 0.5285076434126986
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Transformer",
+    "null_expected_instability": 0.7551209463095238
+  },
+  {
+    "weight": "Retrieval",
+    "method": "FlashAttention-2/3",
+    "null_expected_instability": 0.4042434933333332
+  },
+  {
+    "weight": "Retrieval",
+    "method": "GQA",
+    "null_expected_instability": 0.7551209463095238
+  },
+  {
+    "weight": "Retrieval",
+    "method": "MQA",
+    "null_expected_instability": 0.7824327088095238
+  },
+  {
+    "weight": "Retrieval",
+    "method": "PagedAttention",
+    "null_expected_instability": 0.4042434933333332
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Ring Attention",
+    "null_expected_instability": 0.5733824483333334
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Longformer",
+    "null_expected_instability": 0.7771296582142856
+  },
+  {
+    "weight": "Retrieval",
+    "method": "BigBird",
+    "null_expected_instability": 0.7780979809722226
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Sparse Transformer",
+    "null_expected_instability": 0.7094481100000002
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Routing Transformer",
+    "null_expected_instability": 0.7771296582142856
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Reformer",
+    "null_expected_instability": 0.5749311149999999
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Performer",
+    "null_expected_instability": 0.3986635766666666
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Linformer",
+    "null_expected_instability": 0.3986635766666666
+  },
+  {
+    "weight": "Retrieval",
+    "method": "xLSTM",
+    "null_expected_instability": 0.7094481100000002
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Mamba",
+    "null_expected_instability": 0.7771296582142856
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Mamba-2 (SSD)",
+    "null_expected_instability": 0.7551209463095238
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Hyena",
+    "null_expected_instability": 0.7577850885317461
+  },
+  {
+    "weight": "Retrieval",
+    "method": "RWKV",
+    "null_expected_instability": 0.7094481100000002
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Focus",
+    "null_expected_instability": 0.6972209273809525
+  },
+  {
+    "weight": "Retrieval",
+    "method": "DashAttention",
+    "null_expected_instability": 0.6553872555555555
+  },
+  {
+    "weight": "Retrieval",
+    "method": "Swin Transformer",
+    "null_expected_instability": 0.7551209463095238
+  },
+  {
+    "weight": "Deployment",
+    "method": "Transformer",
+    "null_expected_instability": 0.2907317166666665
+  },
+  {
+    "weight": "Deployment",
+    "method": "FlashAttention-2/3",
+    "null_expected_instability": 0.6341728955555559
+  },
+  {
+    "weight": "Deployment",
+    "method": "GQA",
+    "null_expected_instability": 0.7021630287301585
+  },
+  {
+    "weight": "Deployment",
+    "method": "MQA",
+    "null_expected_instability": 0.6650877958730159
+  },
+  {
+    "weight": "Deployment",
+    "method": "PagedAttention",
+    "null_expected_instability": 0.6341728955555559
+  },
+  {
+    "weight": "Deployment",
+    "method": "Ring Attention",
+    "null_expected_instability": 0.7187441960317461
+  },
+  {
+    "weight": "Deployment",
+    "method": "Longformer",
+    "null_expected_instability": 0.711541654920635
+  },
+  {
+    "weight": "Deployment",
+    "method": "BigBird",
+    "null_expected_instability": 0.7021630287301585
+  },
+  {
+    "weight": "Deployment",
+    "method": "Sparse Transformer",
+    "null_expected_instability": 0.6441429749999997
+  },
+  {
+    "weight": "Deployment",
+    "method": "Routing Transformer",
+    "null_expected_instability": 0.5663777016666668
+  },
+  {
+    "weight": "Deployment",
+    "method": "Reformer",
+    "null_expected_instability": 0.3348673816666667
+  },
+  {
+    "weight": "Deployment",
+    "method": "Performer",
+    "null_expected_instability": 0.5663777016666668
+  },
+  {
+    "weight": "Deployment",
+    "method": "Linformer",
+    "null_expected_instability": 0.5663777016666668
+  },
+  {
+    "weight": "Deployment",
+    "method": "xLSTM",
+    "null_expected_instability": 0.7021630287301585
+  },
+  {
+    "weight": "Deployment",
+    "method": "Mamba",
+    "null_expected_instability": 0.4323358966666666
+  },
+  {
+    "weight": "Deployment",
+    "method": "Mamba-2 (SSD)",
+    "null_expected_instability": 0.3628564666666666
+  },
+  {
+    "weight": "Deployment",
+    "method": "Hyena",
+    "null_expected_instability": 0.7020940705555554
+  },
+  {
+    "weight": "Deployment",
+    "method": "RWKV",
+    "null_expected_instability": 0.7021630287301585
+  },
+  {
+    "weight": "Deployment",
+    "method": "Focus",
+    "null_expected_instability": 0.7187441960317461
+  },
+  {
+    "weight": "Deployment",
+    "method": "DashAttention",
+    "null_expected_instability": 0.6341728955555559
+  },
+  {
+    "weight": "Deployment",
+    "method": "Swin Transformer",
+    "null_expected_instability": 0.6341728955555559
+  }
+]

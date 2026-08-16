@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software/package, please cite it as below."
+title: "Not All Attention Is Equal: A Quantitative Survey of the EEI Trade-off"
+abstract: >-
+  Quantitative survey of efficient attention mechanisms introducing the
+  Efficiency--Expressiveness--Interpretability (EEI) framework, a scored
+  21-method panel, a perturbation-sensitivity protocol, and a reproducibility
+  package.
+authors:
+  - family-names: Singh
+    given-names: Aditya
+    alias: Nixon-H
+date-released: 2026-08-11
+version: v1.0
+keywords:
+  - attention mechanisms
+  - transformer efficiency
+  - survey
+  - EEI framework
+license: CC-BY-4.0
+repository-code: "https://github.com/Nixon-H/not-all-attention-is-equal"
+url: "https://github.com/Nixon-H/not-all-attention-is-equal"

@@ -1,0 +1,28 @@
+\begin{tikzpicture}[
+  box/.style={rectangle, draw, rounded corners, minimum width=2.0cm, minimum height=0.5cm, align=center, font=\scriptsize},
+]
+% Main boxes with more horizontal spacing
+\node[box, fill=blue!10] (add) at (0,0) {Bahdanau\\[-2pt]\tiny Additive};
+\node[box, fill=green!10] (mul) at (4,0) {Luong\\[-2pt]\tiny Multiplicative};
+\node[box, fill=red!10] (sdp) at (8,0) {Vaswani\\[-2pt]\tiny Scaled Dot-Product};
+
+% Arrows down from boxes (longer)
+\draw[->, >=latex, thick, gray] (add.south) -- (0,-2.0);
+\draw[->, >=latex, thick, gray] (sdp.south) -- (8,-2.0);
+
+% Comparison arrows
+\draw[->, >=latex, thick, gray!60] (1.0,-1.4) -- (3.0,-1.4);
+\draw[->, >=latex, thick, gray!60] (5.0,-1.4) -- (7.0,-1.4);
+
+% Labels on arrows
+\node[font=\scriptsize, text=gray!70, anchor=south] at (2.0,-1.4) {More efficient};
+\node[font=\scriptsize, text=gray!70, anchor=south] at (6.0,-1.4) {GPU-optimized};
+
+% Trade-off text (between arrows, above formulas)
+\node[font=\scriptsize, text=gray!60] at (4,-1.9) {expressiveness---efficiency trade-off};
+
+% Formula annotations (moved up a tiny bit)
+\node[font=\tiny, align=center, anchor=north] at (0,-2.2) {$v^T\tanh(Ws+Uh)$\\[-2pt]$O(L^2 d)$, many params};
+\node[font=\tiny, align=center, anchor=north] at (4,-2.2) {$s_i^T h_j$\\[-2pt]$O(L^2)$, no params};
+\node[font=\tiny, align=center, anchor=north] at (8,-2.2) {softmax$(\frac{QK^T}{\sqrt{d_k}})V$\\[-2pt]$O(L^2 d)$, GPU-opt};
+\end{tikzpicture}

@@ -1,0 +1,154 @@
+% EEI score map: x = Efficiency, y = Expressiveness, bubble area = Interpretability.
+% The palette is shared with the roadmap figure.
+\definecolor{fullblue}{HTML}{377EB8}
+\definecolor{iored}{HTML}{E41A1C}
+\definecolor{sparsegreen}{HTML}{4DAF4A}
+\definecolor{linearpurple}{HTML}{984EA3}
+\definecolor{ssmorange}{HTML}{FF7F00}
+\definecolor{adaptteal}{HTML}{009E73}
+\definecolor{paretored}{HTML}{B2182B}
+
+% Bubble area, rather than radius, is proportional to Interpretability.
+\newcommand{\scorebubble}[7]{%
+  \pgfmathsetmacro{\bubbleradius}{0.15*sqrt(#3)}%
+  % Draw leaders first so opaque bubbles cover the line at their centers.
+  \draw[gray!65, line width=0.35pt] (axis cs:#1,#2) -- (axis cs:#6,#7);
+  \fill[#4, opacity=0.64] (axis cs:#1,#2) circle (\bubbleradius cm);
+  \draw[#4!65!black, line width=0.7pt] (axis cs:#1,#2) circle (\bubbleradius cm);
+  \begin{pgfonlayer}{axis foreground}
+    \node[
+      font=\scriptsize,
+      align=center,
+      fill=white,
+      fill opacity=0.9,
+      text opacity=1,
+      inner sep=0.8pt,
+      rounded corners=0.8pt
+    ] at (axis cs:#6,#7) {#5};
+  \end{pgfonlayer}
+}
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.97\linewidth,
+  trim axis left,
+  height=0.61\linewidth,
+  xlabel={Efficiency score (E) $\rightarrow$},
+  ylabel={Expressiveness score (Ex) $\rightarrow$},
+  xmin=3.7, xmax=10.65,
+  ymin=5.35, ymax=10.65,
+  xtick={4,5,6,7,8,9,10},
+  ytick={6,7,8,9,10},
+  grid=both,
+  grid style={dashed, gray!15},
+  tick label style={font=\small},
+  label style={font=\normalsize},
+  axis lines*=left,
+  axis line style={line width=0.8pt},
+  set layers=standard,
+  legend style={
+    at={(0.5,1.035)},
+    anchor=south,
+    legend columns=4,
+    font=\scriptsize,
+    draw=gray!45,
+    fill=white,
+    rounded corners=1pt,
+    /tikz/every even column/.append style={column sep=5pt}
+  }
+]
+
+% The arrow is a design goal, not an empirical trajectory.
+\draw[gray!75, line width=1.5pt, -{Stealth[length=4pt]}]
+  (axis cs:9.16,8.73) -- (axis cs:10.16,10.61);
+\node[gray!75, font=\small, anchor=south east]
+  at (axis cs:10.0,10.10) {Desired direction};
+
+% Full attention.
+\scorebubble{4}{10}{6}{fullblue}{Transformer}{4.08}{10.36}
+
+% IO-aware, distributed, serving, and KV-efficient methods.
+\scorebubble{7}{10}{6}{iored}{Ring Attention}{6.62}{10.36}
+\scorebubble{8}{10}{6}{iored}{FlashAttention-2/3\\PagedAttention}{8.32}{10.42}
+\scorebubble{6.82}{9.08}{6}{iored}{GQA}{6.5}{9.36}
+\scorebubble{7.18}{7.92}{6}{iored}{MQA}{6.7}{7.58}
+
+% Adaptive methods; small display offsets reveal identical score pairs.
+\scorebubble{7.18}{8.92}{7}{adaptteal}{Focus$^\dagger$}{7.35}{8.58}
+\scorebubble{8}{9}{7}{adaptteal}{DashAttention$^\dagger$}{8.47}{9.2}
+
+% Sparse, routed, and windowed methods.
+\scorebubble{6}{8}{6}{sparsegreen}{Routing Transformer}{5.43}{8.18}
+\scorebubble{6.82}{8.08}{7}{sparsegreen}{BigBird}{6.48}{8.37}
+\scorebubble{7}{7}{6}{sparsegreen}{Sparse Transformer}{6.48}{6.63}
+\scorebubble{7.82}{7.08}{7}{sparsegreen}{Longformer}{7.48}{7.43}
+\scorebubble{8}{8}{8}{sparsegreen}{Swin Transformer}{8.42}{8.27}
+\scorebubble{6}{7}{5}{sparsegreen}{Reformer}{5.55}{7.18}
+
+% Linear and kernel methods.
+\scorebubble{7}{6}{5}{linearpurple}{Performer / Linformer}{7}{5.61}
+
+% Structured sequence methods.
+\scorebubble{8.12}{6.92}{5}{ssmorange}{xLSTM / RWKV}{8.25}{6.55}
+\scorebubble{10}{8}{6}{ssmorange}{Mamba-2 (SSD)}{9.42}{8.25}
+\scorebubble{9}{7}{5}{ssmorange}{Hyena}{9}{6.61}
+\scorebubble{10}{7}{5}{ssmorange}{Mamba}{10}{6.61}
+
+% Tiny quadrant guide for readers skimming the plot.
+\node[
+  font=\scriptsize\itshape,
+  text=gray!75!black,
+  align=center,
+  fill=white,
+  fill opacity=0.9,
+  text opacity=1,
+  rounded corners=1pt,
+  inner sep=1.2pt
+] at (axis cs:4.55,9.18) {High Ex, low E:\\expressive but expensive};
+\node[
+  font=\scriptsize\itshape,
+  text=gray!75!black,
+  align=center,
+  fill=white,
+  fill opacity=0.9,
+  text opacity=1,
+  rounded corners=1pt,
+  inner sep=1.2pt
+] at (axis cs:9.55,5.72) {High E, lower Ex:\\efficient but less expressive};
+
+% P tags mark non-dominated E--Ex score pairs without adding extra circles.
+\node[paretored, font=\scriptsize\bfseries, anchor=north east, fill=white, inner sep=0.5pt]
+  at (axis cs:7.86,9.82) {P};
+\node[paretored, font=\scriptsize\bfseries, anchor=north east, fill=white, inner sep=0.5pt]
+  at (axis cs:9.82,7.78) {P};
+\node[paretored, font=\scriptsize, anchor=west, fill=white, inner sep=1pt]
+  at (axis cs:8.02,9.62) {P: E--Ex Pareto-optimal score pair};
+
+% Family legend, ordered by the manuscript taxonomy.
+\addlegendimage{only marks, mark=*, mark size=2.4pt, fullblue}
+\addlegendentry{Full attention}
+\addlegendimage{only marks, mark=*, mark size=2.4pt, sparsegreen}
+\addlegendentry{Sparse / routed / window}
+\addlegendimage{only marks, mark=*, mark size=2.4pt, linearpurple}
+\addlegendentry{Linear / kernel}
+\addlegendimage{only marks, mark=*, mark size=2.4pt, iored}
+\addlegendentry{IO-aware / KV-efficient}
+\addlegendimage{only marks, mark=*, mark size=2.4pt, ssmorange}
+\addlegendentry{Structured sequence}
+\addlegendimage{only marks, mark=*, mark size=2.4pt, adaptteal}
+\addlegendentry{Adaptive}
+
+\node[
+  anchor=south west,
+  align=left,
+  font=\scriptsize,
+  fill=white,
+  fill opacity=0.93,
+  text opacity=1,
+  inner sep=2pt,
+  rounded corners=1pt
+] at (axis cs:3.78,5.39)
+  {Bubble area $\propto I$ score; slight jitter separates identical $(E,Ex)$ scores.};
+
+\end{axis}
+\end{tikzpicture}

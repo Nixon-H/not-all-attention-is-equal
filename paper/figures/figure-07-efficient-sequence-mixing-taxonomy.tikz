@@ -1,0 +1,22 @@
+\begin{tikzpicture}[
+  box/.style={rectangle, draw, rounded corners, minimum width=1.8cm, minimum height=0.4cm, align=center, font=\scriptsize, inner sep=2pt},
+  leaf/.style={font=\tiny, align=center}
+]
+\node[rectangle, draw, rounded corners, minimum width=15.4cm, minimum height=0.5cm, align=center, font=\small, fill=blue!15] at (0,0) {Efficient Sequence Mixing};
+
+\node[box, fill=blue!5] at (-6.6,-1.0) {Dense};
+\node[box, fill=blue!5] at (-4.4,-1.0) {Sparse};
+\node[box, fill=blue!5] at (-2.2,-1.0) {Linear};
+\node[box, fill=blue!5] at (0,-1.0) {IO-Aware};
+\node[box, fill=blue!5] at (2.2,-1.0) {Structured};
+\node[box, fill=blue!5] at (4.4,-1.0) {Adaptive};
+\node[box, fill=blue!5] at (6.6,-1.0) {Hybrid};
+
+\node[leaf] at (-6.6,-1.7) {Full/MHA\\GQA-MQA};
+\node[leaf] at (-4.4,-1.7) {Window/Stride\\Global/LSH/Cluster};
+\node[leaf] at (-2.2,-1.7) {Kernel\\Random feat.};
+\node[leaf] at (0,-1.7) {Tiling/FP8\\Paged KV};
+\node[leaf] at (2.2,-1.7) {SSM/Recurrent\\Long convolution};
+\node[leaf] at (4.4,-1.7) {Grouping\\Entmax};
+\node[leaf] at (6.6,-1.7) {Attention--SSM\\interleave};
+\end{tikzpicture}

@@ -1,0 +1,22 @@
+method,E,Ex,I,E_evidence,Ex_evidence,I_evidence,E_source,Ex_source,I_source
+Transformer,4,10,6,Complexity: quadratic O(L^2 d),Complexity: exact full attention,Mechanistic: head attribution,vaswani2017,vaswani2017,vaswani2017
+FlashAttention-2/3,8,10,6,Complexity+Hardware: IO-aware SRAM tiling,Complexity: exact computation,Mechanistic: same as full attention,dao2022,dao2024,vaswani2017
+GQA,7,9,6,Complexity+Hardware: KV cache reduction,Complexity: shared-KV minor loss,Mechanistic: shared projections,ainslie2023,ainslie2023,ainslie2023
+MQA,7,8,6,Complexity+Hardware: full KV sharing,Benchmark: slightly lower quality at matched size,Mechanistic: shared projections,shazeer2019,shazeer2019,shazeer2019
+PagedAttention,8,10,6,Hardware: block-level serving,Complexity: exact computation,Mechanistic: same as full attention,kwon2023,kwon2023,kwon2023
+Ring Attention,7,10,6,Hardware: distributed overhead,Complexity: exact computation,Mechanistic: same as full attention,liu2024a,liu2024a,liu2024a
+Longformer,8,7,7,Complexity: O(Lw) windowed attention,Benchmark: LRA 53.46,Mechanistic: window structure,beltagy2020,beltagy2020,beltagy2020
+BigBird,7,8,7,Complexity: O(L) three-pattern design,Complexity+Benchmark: Turing-complete; LRA 55.01,Mechanistic: explicit 3-part design,zaheer2020,zaheer2020,zaheer2020
+Sparse Transformer,7,7,6,Complexity: O(L sqrt(L)),Benchmark: quality drop,Mechanistic: structured pattern,child2019,child2019,child2019
+Routing Transformer,6,8,6,Complexity+Hardware: k-means overhead,Benchmark: content-based retrieval,Mechanistic: cluster assignment,roy2021,roy2021,roy2021
+Reformer,6,7,5,Complexity+Hardware: LSH overhead,Benchmark: LRA 50.67,Mechanistic: hash opacity,kitaev2020,kitaev2020,kitaev2020
+Performer,7,6,5,Complexity: O(L) kernel,Benchmark: LRA 51.41,Mechanistic: random features,choromanski2021,choromanski2021,choromanski2021
+Linformer,7,6,5,Complexity: O(Lk) projection,Benchmark: low-rank degradation,Mechanistic: projection opacity,wang2020,wang2020,wang2020
+xLSTM,8,7,5,Complexity: O(L) recurrent,Benchmark: competitive perplexity,Mechanistic: recurrent opacity,beck2024,beck2024,beck2024
+Mamba,10,7,5,Complexity+Hardware: O(L) selective-scan kernel (A100),Benchmark: Pile PPL 10.56,Mechanistic: SSM opacity,gudao2024,gudao2024,gudao2024
+Mamba-2 (SSD),10,8,6,Hardware: tensor-core matmul formulation,Complexity+Benchmark: SSD duality; structured semiseparable form,Mechanistic: duality to attention-like structure,daogu2024,daogu2024,daogu2024
+Hyena,9,7,5,Complexity+Hardware: FFT convolutions,Complexity: implicit convolution,Mechanistic: implicit convolution,poli2023,poli2023,poli2023
+RWKV,8,7,5,Complexity: linear recurrence; no speedup reported,Benchmark: LRA 72.07,Mechanistic: recurrent opacity,peng2023a,peng2023a,peng2023a
+Focus,7,9,7,Hardware: 2.0x speedup,Complexity: exact within groups,Mechanistic: centroid grouping,yao2026,yao2026,yao2026
+DashAttention,8,9,7,Hardware: 3.3x kernel speedup,Complexity: exact within routed blocks,Mechanistic: 2-stage routing,huang2026,huang2026,huang2026
+Swin Transformer,8,8,8,Complexity: O(H_p W_p M^2 d),Benchmark: ImageNet 83.5%,Mechanistic: spatial grounding,liu2021,liu2021,liu2021

@@ -1,0 +1,196 @@
+{
+  "title": "EEI scores for representative attention methods",
+  "panel_size": 21,
+  "source": "artifacts/eei/verification-spreadsheet.csv (manuscript Table 4; 21-method purposive panel)",
+  "methods": [
+    {
+      "method": "Transformer",
+      "E": "4",
+      "Ex": "10",
+      "I": "6",
+      "E_evidence": "Complexity: quadratic O(L^2 d)",
+      "Ex_evidence": "Complexity: exact full attention",
+      "I_evidence": "Mechanistic: head attribution"
+    },
+    {
+      "method": "FlashAttention-2/3",
+      "E": "8",
+      "Ex": "10",
+      "I": "6",
+      "E_evidence": "Complexity+Hardware: IO-aware SRAM tiling",
+      "Ex_evidence": "Complexity: exact computation",
+      "I_evidence": "Mechanistic: same as full attention"
+    },
+    {
+      "method": "GQA",
+      "E": "7",
+      "Ex": "9",
+      "I": "6",
+      "E_evidence": "Complexity+Hardware: KV cache reduction",
+      "Ex_evidence": "Complexity: shared-KV minor loss",
+      "I_evidence": "Mechanistic: shared projections"
+    },
+    {
+      "method": "MQA",
+      "E": "7",
+      "Ex": "8",
+      "I": "6",
+      "E_evidence": "Complexity+Hardware: full KV sharing",
+      "Ex_evidence": "Benchmark: slightly lower quality at matched size",
+      "I_evidence": "Mechanistic: shared projections"
+    },
+    {
+      "method": "PagedAttention",
+      "E": "8",
+      "Ex": "10",
+      "I": "6",
+      "E_evidence": "Hardware: block-level serving",
+      "Ex_evidence": "Complexity: exact computation",
+      "I_evidence": "Mechanistic: same as full attention"
+    },
+    {
+      "method": "Ring Attention",
+      "E": "7",
+      "Ex": "10",
+      "I": "6",
+      "E_evidence": "Hardware: distributed overhead",
+      "Ex_evidence": "Complexity: exact computation",
+      "I_evidence": "Mechanistic: same as full attention"
+    },
+    {
+      "method": "Longformer",
+      "E": "8",
+      "Ex": "7",
+      "I": "7",
+      "E_evidence": "Complexity: O(Lw) windowed attention",
+      "Ex_evidence": "Benchmark: LRA 53.46",
+      "I_evidence": "Mechanistic: window structure"
+    },
+    {
+      "method": "BigBird",
+      "E": "7",
+      "Ex": "8",
+      "I": "7",
+      "E_evidence": "Complexity: O(L) three-pattern design",
+      "Ex_evidence": "Complexity+Benchmark: Turing-complete; LRA 55.01",
+      "I_evidence": "Mechanistic: explicit 3-part design"
+    },
+    {
+      "method": "Sparse Transformer",
+      "E": "7",
+      "Ex": "7",
+      "I": "6",
+      "E_evidence": "Complexity: O(L sqrt(L))",
+      "Ex_evidence": "Benchmark: quality drop",
+      "I_evidence": "Mechanistic: structured pattern"
+    },
+    {
+      "method": "Routing Transformer",
+      "E": "6",
+      "Ex": "8",
+      "I": "6",
+      "E_evidence": "Complexity+Hardware: k-means overhead",
+      "Ex_evidence": "Benchmark: content-based retrieval",
+      "I_evidence": "Mechanistic: cluster assignment"
+    },
+    {
+      "method": "Reformer",
+      "E": "6",
+      "Ex": "7",
+      "I": "5",
+      "E_evidence": "Complexity+Hardware: LSH overhead",
+      "Ex_evidence": "Benchmark: LRA 50.67",
+      "I_evidence": "Mechanistic: hash opacity"
+    },
+    {
+      "method": "Performer",
+      "E": "7",
+      "Ex": "6",
+      "I": "5",
+      "E_evidence": "Complexity: O(L) kernel",
+      "Ex_evidence": "Benchmark: LRA 51.41",
+      "I_evidence": "Mechanistic: random features"
+    },
+    {
+      "method": "Linformer",
+      "E": "7",
+      "Ex": "6",
+      "I": "5",
+      "E_evidence": "Complexity: O(Lk) projection",
+      "Ex_evidence": "Benchmark: low-rank degradation",
+      "I_evidence": "Mechanistic: projection opacity"
+    },
+    {
+      "method": "xLSTM",
+      "E": "8",
+      "Ex": "7",
+      "I": "5",
+      "E_evidence": "Complexity: O(L) recurrent",
+      "Ex_evidence": "Benchmark: competitive perplexity",
+      "I_evidence": "Mechanistic: recurrent opacity"
+    },
+    {
+      "method": "Mamba",
+      "E": "10",
+      "Ex": "7",
+      "I": "5",
+      "E_evidence": "Complexity+Hardware: O(L) selective-scan kernel (A100)",
+      "Ex_evidence": "Benchmark: Pile PPL 10.56",
+      "I_evidence": "Mechanistic: SSM opacity"
+    },
+    {
+      "method": "Mamba-2 (SSD)",
+      "E": "10",
+      "Ex": "8",
+      "I": "6",
+      "E_evidence": "Hardware: tensor-core matmul formulation",
+      "Ex_evidence": "Complexity+Benchmark: SSD duality; structured semiseparable form",
+      "I_evidence": "Mechanistic: duality to attention-like structure"
+    },
+    {
+      "method": "Hyena",
+      "E": "9",
+      "Ex": "7",
+      "I": "5",
+      "E_evidence": "Complexity+Hardware: FFT convolutions",
+      "Ex_evidence": "Complexity: implicit convolution",
+      "I_evidence": "Mechanistic: implicit convolution"
+    },
+    {
+      "method": "RWKV",
+      "E": "8",
+      "Ex": "7",
+      "I": "5",
+      "E_evidence": "Complexity: linear recurrence; no speedup reported",
+      "Ex_evidence": "Benchmark: LRA 72.07",
+      "I_evidence": "Mechanistic: recurrent opacity"
+    },
+    {
+      "method": "Focus",
+      "E": "7",
+      "Ex": "9",
+      "I": "7",
+      "E_evidence": "Hardware: 2.0x speedup",
+      "Ex_evidence": "Complexity: exact within groups",
+      "I_evidence": "Mechanistic: centroid grouping"
+    },
+    {
+      "method": "DashAttention",
+      "E": "8",
+      "Ex": "9",
+      "I": "7",
+      "E_evidence": "Hardware: 3.3x kernel speedup",
+      "Ex_evidence": "Complexity: exact within routed blocks",
+      "I_evidence": "Mechanistic: 2-stage routing"
+    },
+    {
+      "method": "Swin Transformer",
+      "E": "8",
+      "Ex": "8",
+      "I": "8",
+      "E_evidence": "Complexity: O(H_p W_p M^2 d)",
+      "Ex_evidence": "Benchmark: ImageNet 83.5%",
+      "I_evidence": "Mechanistic: spatial grounding"
+    }
+  ]
+}
